@@ -1,25 +1,25 @@
-.ProductTable {
+.productTable {
   border-collapse: collapse;
   min-width: 70vh;
   margin-left: auto;
   margin-right: auto;
 }
 
-.ProductTable td,
-.ProductTable th {
+.productTable td,
+.productTable th {
   border: 1px solid #dddddd;
   padding: 10px;
 }
 
-.ProductTable tr:nth-child(even) {
+.productTable tr:nth-child(even) {
   background-color: #dcecf7;
 }
 
-.ProductTable tr:hover {
+.productTable tr:hover {
   background-color: #d3e5ff;
 }
 
-.ProductTable th {
+.productTable th {
   padding: 10px;
   text-align: left;
   background-color: #405fbb;
@@ -27,9 +27,9 @@
 }
 
 .button {
-	display: inline-block;
+  display: inline-block;
   border: none;
-  background-color:#405fbb;
-	color:white;
-	padding: 5px;
+  background-color: #405fbb;
+  color: white;
+  padding: 5px;
 }

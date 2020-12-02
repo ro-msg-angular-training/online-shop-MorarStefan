@@ -1,8 +1,16 @@
 <h2>Product Details</h2>
 
-<div class="ProductDetails">
-    <div class="Name">Name: {{product.name}}</div>
-    <div class="Category">Category: {{product.category}}</div>
-    <div class="Price">Price: {{product.price}}</div>
-    <div class="Description">Description: {{product.description}}</div>
+<div class="productDetails">
+    <div class="informationColumn">
+        <div class="name">Name: {{product.name}}</div>
+        <div class="category">Category: {{product.category}}</div>
+        <div class="price">Price: {{product.price}}</div>
+        <div class="description">Description: {{product.description}}</div>
+        <button class="button">
+            Add to cart
+        </button>
+    </div>
+    <div class="imageColumn">
+        <img class="image" src={{product.image}} />
+    </div>
 </div>
