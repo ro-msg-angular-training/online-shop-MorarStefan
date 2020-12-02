@@ -1,0 +1,27 @@
+.ProductTable {
+  border-collapse: collapse;
+  min-width: 70vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ProductTable td,
+.ProductTable th {
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+
+.ProductTable tr:nth-child(even) {
+  background-color: #dcecf7;
+}
+
+.ProductTable tr:hover {
+  background-color: #d3e5ff;
+}
+
+.ProductTable th {
+  padding: 10px;
+  text-align: left;
+  background-color: #405fbb;
+  color: white;
+}
