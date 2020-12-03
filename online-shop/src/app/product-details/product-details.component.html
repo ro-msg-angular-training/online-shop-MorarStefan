@@ -3,7 +3,7 @@
 <div class="productDetails">
     <div class="informationColumn">
         <div class="name">Name: {{product.name}}</div>
-        <div class="category">Category: {{product.category}}</div>
+        <div class="category">Category: {{product.category.name}}</div>
         <div class="price">Price: {{product.price}}</div>
         <div class="description">Description: {{product.description}}</div>
         <button class="button">
@@ -11,6 +11,6 @@
         </button>
     </div>
     <div class="imageColumn">
-        <img class="image" src={{product.image}} />
+        <img class="image" src={{imageApi}} />
     </div>
 </div>
