@@ -10,7 +10,11 @@
         <td>{{product.category.name}}</td>
         <td>{{product.price}}</td>
         <td>
-            <a routerLink="/products/{{product._id}}"><button class="button"> Details </button></a>
+            <a routerLink="/products/{{product._id}}">
+                <button mat-mini-fab color="primary">
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
+            </a>
         </td>
     </tr>
 </table>

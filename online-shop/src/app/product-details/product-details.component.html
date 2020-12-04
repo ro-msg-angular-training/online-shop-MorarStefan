@@ -6,17 +6,14 @@
         <div class="category">Category: {{product.category.name}}</div>
         <div class="price">Price: {{product.price}}</div>
         <div class="description">Description: {{product.description}}</div>
-        <button class="button" (click)="addProductToShoppingCart()">
-            Add to cart
+        <button class="button" mat-raised-button color="primary" (click)="addProductToShoppingCart()">Add to cart
         </button>
         <a routerLink="/shoppingCart">
-            <button class="button">
-                See shopping cart
-            </button>
+            <button class="button" mat-raised-button color="primary">See shopping cart</button>
         </a>
         <a routerLink="/products">
-            <button class="button" (click)="deleteProduct()">
-                Delete product from catalogue
+            <button class="button" mat-raised-button color="primary" (click)="deleteProduct()">Delete product from
+                catalogue
             </button>
         </a>
     </div>
