@@ -24,6 +24,12 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
+  deleteProduct(productId: String): Observable<Product> {
+    return this.http
+      .delete<Product>(`${this.productsBackendUrl}/${productId}`)
+      .pipe(catchError(this.handleError));
+  }
+
   getProductImageApi(productId: String): string {
     return `${this.productsBackendUrl}/${productId}/images`;
   }
@@ -33,7 +39,7 @@ export class ProductService {
       console.error('An error occurred:', error.error.message);
     } else {
       console.error(
-        `Backend returned code ${error.status}, ' + 'body was: ${error.error}`
+        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
       );
     }
     return throwError('Something bad happened; please try again later.');

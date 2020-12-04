@@ -9,6 +9,11 @@
         <button class="button">
             Add to cart
         </button>
+        <a routerLink="/products">
+            <button class="button" (click)="deleteProduct()">
+                Delete product from catalogue
+            </button>
+        </a>
     </div>
     <div class="imageColumn">
         <img class="image" src={{imageApi}} />

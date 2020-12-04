@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product-service';
 import Product from '../../interfaces/Product';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-details',
@@ -26,6 +25,10 @@ export class ProductDetailsComponent implements OnInit {
       .getProduct(this.productId)
       .subscribe((data) => (this.product = data));
     this.imageApi = this.productService.getProductImageApi(this.productId);
+  }
+
+  deleteProduct(): void {
+    this.productService.deleteProduct(this.productId).subscribe();
   }
 
   getDefaultProduct(): Product {
