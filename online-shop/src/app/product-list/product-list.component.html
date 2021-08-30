@@ -1,20 +1,28 @@
-<table class="table">
-    <tr>
-        <th>Product</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th></th>
-    </tr>
-    <tr *ngFor="let product of products">
-        <td>{{product.name}}</td>
-        <td>{{product.category.name}}</td>
-        <td>{{product.price}}</td>
-        <td>
-            <a routerLink="/products/{{product._id}}">
+<mat-table [dataSource]="products" class="products-table">
+    <ng-container matColumnDef="product">
+        <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.category.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <a routerLink="/products/{{element._id}}">
                 <button mat-mini-fab color="primary">
                     <mat-icon>keyboard_arrow_right</mat-icon>
                 </button>
-            </a>
-        </td>
-    </tr>
-</table>
+            </a> </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

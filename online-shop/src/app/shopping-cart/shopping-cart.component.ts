@@ -10,6 +10,7 @@ import ShoppingCartItem from '../../interfaces/ShoppingCartItem';
 })
 export class ShoppingCartComponent implements OnInit {
   shoppingCartItems: Array<ShoppingCartItem> = [];
+  displayedColumns: string[] = ['product', 'category', 'price', 'quantity'];
 
   constructor(
     private shoppingCartService: ShoppingCartService,

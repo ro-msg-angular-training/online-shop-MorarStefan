@@ -9,6 +9,7 @@ import Product from '../../interfaces/Product';
 })
 export class ProductListComponent implements OnInit {
   products: Array<Product> = [];
+  displayedColumns: string[] = ['product', 'category', 'price', 'action'];
 
   constructor(private productService: ProductService) {}
 
