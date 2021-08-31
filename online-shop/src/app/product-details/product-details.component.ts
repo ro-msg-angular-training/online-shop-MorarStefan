@@ -4,6 +4,8 @@ import { ProductService } from '../../services/product.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import Product from '../../interfaces/Product';
 import ShoppingCartItem from '../../interfaces/ShoppingCartItem';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductFormComponent } from '../product-form/product-form.component';
 
 @Component({
   selector: 'app-product-details',
@@ -18,7 +20,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService,
+    public dialog: MatDialog
   ) {
     this.productId = route.snapshot.params.id;
   }
@@ -39,7 +42,14 @@ export class ProductDetailsComponent implements OnInit {
     console.log(this.shoppingCartService.getItems());
   }
 
-  getDefaultProduct(): Product {
+  openProductForm(): void {
+    this.dialog.open(ProductFormComponent, {
+      width: '500px',
+      data: { product: this.product },
+    });
+  }
+
+  private getDefaultProduct(): Product {
     const defaultProduct: Product = {
       _id: '',
       name: '',
@@ -58,7 +68,7 @@ export class ProductDetailsComponent implements OnInit {
     return defaultProduct;
   }
 
-  getShoppingCartItem(): ShoppingCartItem {
+  private getShoppingCartItem(): ShoppingCartItem {
     const shoppingCartItem: ShoppingCartItem = {
       productId: this.product._id,
       productName: this.product.name,

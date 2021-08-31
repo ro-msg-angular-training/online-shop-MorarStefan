@@ -13,3 +13,5 @@ export default interface Product {
   weight: number;
   imageUrl: string;
 }
+
+export type ProductOmitId = Omit<Product, '_id'>;

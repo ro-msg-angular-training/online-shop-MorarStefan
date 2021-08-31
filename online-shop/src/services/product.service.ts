@@ -1,46 +1,48 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import Product from '../interfaces/Product';
+import Product, { ProductOmitId } from '../interfaces/Product';
+import { environment } from 'src/environments/environment';
+import { handleError } from './helpers';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private productsBackendUrl = 'http://localhost:4000/products';
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Array<Product>> {
     return this.http
-      .get<Array<Product>>(this.productsBackendUrl)
-      .pipe(catchError(this.handleError));
+      .get<Array<Product>>(`${environment.serverConnection}/products`)
+      .pipe(catchError(handleError));
   }
 
   getProduct(productId: String): Observable<Product> {
     return this.http
-      .get<Product>(`${this.productsBackendUrl}/${productId}`)
-      .pipe(catchError(this.handleError));
+      .get<Product>(`${environment.serverConnection}/products/${productId}`)
+      .pipe(catchError(handleError));
   }
 
   deleteProduct(productId: String): Observable<Product> {
     return this.http
-      .delete<Product>(`${this.productsBackendUrl}/${productId}`)
-      .pipe(catchError(this.handleError));
+      .delete<Product>(`${environment.serverConnection}/products/${productId}`)
+      .pipe(catchError(handleError));
+  }
+
+  createProduct(product: ProductOmitId): Observable<Product> {
+    return this.http
+      .post<Product>(`${environment.serverConnection}/products`, product)
+      .pipe(catchError(handleError));
+  }
+
+  updateProduct(product: Product): Observable<Product> {
+    return this.http
+      .put<Product>(`${environment.serverConnection}/products`, product)
+      .pipe(catchError(handleError));
   }
 
   getProductImageApi(productId: String): string {
-    return `${this.productsBackendUrl}/${productId}/images`;
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
-      );
-    }
-    return throwError('Something bad happened; please try again later.');
+    return `${environment.serverConnection}/products/${productId}/images`;
   }
 }

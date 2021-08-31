@@ -4,7 +4,9 @@
     <div class="informationColumn">
         <div class="name">Name: {{product.name}}</div>
         <div class="category">Category: {{product.category.name}}</div>
+        <div class="category">Supplier: {{product.supplier.name}}</div>
         <div class="price">Price: {{product.price}}</div>
+        <div class="price">Weight: {{product.weight}}</div>
         <div class="description">Description: {{product.description}}</div>
         <button class="button" mat-raised-button color="primary" (click)="addProductToShoppingCart()">Add to cart
         </button>
@@ -16,6 +18,8 @@
                 catalogue
             </button>
         </a>
+
+        <button class="button" mat-raised-button color="primary" (click)="openProductForm()">Edit product</button>
     </div>
     <div class="imageColumn">
         <img class="image" src={{imageApi}} />
