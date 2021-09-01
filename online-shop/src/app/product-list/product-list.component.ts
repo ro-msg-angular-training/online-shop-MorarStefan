@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product.service';
 import Product from '../../interfaces/Product';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductFormComponent } from '../product-form/product-form.component';
+import { AuthService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-product-list',
@@ -15,6 +16,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private authService: AuthService,
     public dialog: MatDialog
   ) {}
 
@@ -28,5 +30,9 @@ export class ProductListComponent implements OnInit {
     this.dialog.open(ProductFormComponent, {
       width: '500px',
     });
+  }
+
+  displayAddButton(): boolean {
+    return this.authService.getLoggedUserRole() === 'admin';
   }
 }

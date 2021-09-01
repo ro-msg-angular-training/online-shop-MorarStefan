@@ -1,0 +1,16 @@
+[
+    {
+        "_id": "c92f8ee1-bbf1-4312-93bd-412e1bf80664",
+        "username": "doej",
+        "password": "1234",
+        "fullName": "John Doe",
+        "role": "customer"
+    },
+    {
+        "_id": "4d3b6a94-af21-4ebe-8318-32815784e876",
+        "username": "blackj",
+        "password": "1234",
+        "fullName": "Jack Black",
+        "role": "admin"
+    }
+]

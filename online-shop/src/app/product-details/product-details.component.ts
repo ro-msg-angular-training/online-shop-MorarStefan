@@ -6,6 +6,7 @@ import Product from '../../interfaces/Product';
 import ShoppingCartItem from '../../interfaces/ShoppingCartItem';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductFormComponent } from '../product-form/product-form.component';
+import { AuthService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-product-details',
@@ -21,6 +22,7 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private shoppingCartService: ShoppingCartService,
+    private authService: AuthService,
     public dialog: MatDialog
   ) {
     this.productId = route.snapshot.params.id;
@@ -39,7 +41,6 @@ export class ProductDetailsComponent implements OnInit {
 
   addProductToShoppingCart(): void {
     this.shoppingCartService.addItem(this.getShoppingCartItem());
-    console.log(this.shoppingCartService.getItems());
   }
 
   openProductForm(): void {
@@ -47,6 +48,10 @@ export class ProductDetailsComponent implements OnInit {
       width: '500px',
       data: { product: this.product },
     });
+  }
+
+  displayEditDeleteButtons(): boolean {
+    return this.authService.getLoggedUserRole() === 'admin';
   }
 
   private getDefaultProduct(): Product {
