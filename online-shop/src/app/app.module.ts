@@ -20,6 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { fakeBackendProvider } from './interceptors/fake-backend.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from 'src/store/reducers/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from 'src/store/effects/login.effects';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,8 @@ import { fakeBackendProvider } from './interceptors/fake-backend.interceptor';
     MatPaginatorModule,
     MatSnackBarModule,
     ReactiveFormsModule,
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([LoginEffects]),
   ],
   providers: [fakeBackendProvider],
   bootstrap: [AppComponent],
