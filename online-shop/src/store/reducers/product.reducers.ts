@@ -18,6 +18,42 @@ export const productReducers = (
         error: action.payload,
       };
     }
+    case EProductActions.CreateProductSuccess: {
+      return {
+        ...state,
+        productList: [...state.productList, action.payload],
+      };
+    }
+    case EProductActions.CreateProductError: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    case EProductActions.UpdateProductSuccess: {
+      return {
+        ...state,
+        product: action.payload,
+      };
+    }
+    case EProductActions.UpdateProductError: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    case EProductActions.DeleteProductSuccess: {
+      return {
+        ...state,
+        product: null,
+      };
+    }
+    case EProductActions.DeleteProductError: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
     case EProductActions.GetProductListSuccess: {
       return {
         ...state,

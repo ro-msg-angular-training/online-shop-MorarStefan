@@ -10,7 +10,7 @@ import { AuthService } from 'src/services/auth.service';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/store/state/app.state';
 import { selectProduct } from 'src/store/selectors/product.state';
-import { GetProduct } from 'src/store/actions/product.actions';
+import { DeleteProduct, GetProduct } from 'src/store/actions/product.actions';
 
 @Component({
   selector: 'app-product-details',
@@ -51,7 +51,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   deleteProduct(): void {
-    this.productService.deleteProduct(this.productId).subscribe();
+    this.store.dispatch(new DeleteProduct(this.productId));
   }
 
   addProductToShoppingCart(): void {

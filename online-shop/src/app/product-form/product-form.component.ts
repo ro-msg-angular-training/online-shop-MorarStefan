@@ -1,13 +1,18 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { Category } from 'src/interfaces/Category';
 import Product, { ProductOmitId } from 'src/interfaces/Product';
 import { ProductDialogData } from 'src/interfaces/ProductDialogData';
 import { Supplier } from 'src/interfaces/Supplier';
 import { CategoryService } from 'src/services/category.service';
-import { ProductService } from 'src/services/product.service';
 import { SupplierService } from 'src/services/supplier.service';
+import {
+  CreateProduct,
+  UpdateProduct,
+} from 'src/store/actions/product.actions';
+import { AppState } from 'src/store/state/app.state';
 
 @Component({
   selector: 'app-product-form',
@@ -24,7 +29,7 @@ export class ProductFormComponent implements OnInit {
     public dialogRef: MatDialogRef<ProductFormComponent>,
     private categoryService: CategoryService,
     private supplierService: SupplierService,
-    private productService: ProductService,
+    private store: Store<AppState>,
     @Inject(MAT_DIALOG_DATA) public data: ProductDialogData,
     private formBuilder: FormBuilder
   ) {}
@@ -106,7 +111,7 @@ export class ProductFormComponent implements OnInit {
       imageUrl: this.productForm.value.imageUrl,
     };
 
-    this.productService.createProduct(product).subscribe();
+    this.store.dispatch(new CreateProduct(product));
   }
 
   private updateProduct() {
@@ -128,7 +133,7 @@ export class ProductFormComponent implements OnInit {
       imageUrl: this.productForm.value.imageUrl,
     };
 
-    this.productService.updateProduct(product).subscribe();
+    this.store.dispatch(new UpdateProduct(product));
   }
 
   private getCategoryDescription(categoryName: string): string {
