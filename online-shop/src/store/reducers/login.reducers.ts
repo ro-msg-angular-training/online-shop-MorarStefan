@@ -12,6 +12,12 @@ export const loginReducers = (
         user: action.payload,
       };
     }
+    case ELoginActions.LoginUserError: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
     default:
       return state;
   }

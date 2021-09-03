@@ -14,13 +14,13 @@
             <button class="button" mat-raised-button color="primary">See shopping cart</button>
         </a>
         <a routerLink="/products">
-            <button *ngIf="displayEditDeleteButtons()" class="button" mat-raised-button color="primary"
+            <button *ngIf="displayEditDeleteButtons" class="button" mat-raised-button color="primary"
                 (click)="deleteProduct()">Delete product from
                 catalogue
             </button>
         </a>
 
-        <button *ngIf="displayEditDeleteButtons()" class="button" mat-raised-button color="primary"
+        <button *ngIf="displayEditDeleteButtons" class="button" mat-raised-button color="primary"
             (click)="openProductForm()">Edit product</button>
     </div>
     <div class="imageColumn">

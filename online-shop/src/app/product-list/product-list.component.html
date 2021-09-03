@@ -27,6 +27,6 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<button *ngIf="displayAddButton()" class="add-product-button" mat-raised-button color="primary"
+<button *ngIf="displayAddButton" class="add-product-button" mat-raised-button color="primary"
     (click)="openProductForm()">Add product
 </button>

@@ -7,6 +7,10 @@ import ShoppingCartItem from '../../interfaces/ShoppingCartItem';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductFormComponent } from '../product-form/product-form.component';
 import { AuthService } from 'src/services/auth.service';
+import { select, Store } from '@ngrx/store';
+import { AppState } from 'src/store/state/app.state';
+import { selectProduct } from 'src/store/selectors/product.state';
+import { GetProduct } from 'src/store/actions/product.actions';
 
 @Component({
   selector: 'app-product-details',
@@ -16,23 +20,34 @@ import { AuthService } from 'src/services/auth.service';
 export class ProductDetailsComponent implements OnInit {
   productId = '';
   imageApi = '';
-  product: Product = this.getDefaultProduct();
+  product!: Product;
+  product$ = this.store.pipe(select(selectProduct));
+  displayEditDeleteButtons = false;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private shoppingCartService: ShoppingCartService,
     private authService: AuthService,
-    public dialog: MatDialog
-  ) {
-    this.productId = route.snapshot.params.id;
-  }
+    private store: Store<AppState>,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-    this.productService
-      .getProduct(this.productId)
-      .subscribe((data) => (this.product = data));
+    this.product = this.getDefaultProduct();
+    this.productId = this.route.snapshot.params.id;
+    this.store.dispatch(new GetProduct(this.productId));
+    this.product$.subscribe((data) => {
+      if (data) this.product = data;
+    });
+
     this.imageApi = this.productService.getProductImageApi(this.productId);
+
+    this.authService.getLoggedUserRole().subscribe((role) => {
+      if (role && role === 'admin') {
+        this.displayEditDeleteButtons = true;
+      }
+    });
   }
 
   deleteProduct(): void {
@@ -48,10 +63,6 @@ export class ProductDetailsComponent implements OnInit {
       width: '500px',
       data: { product: this.product },
     });
-  }
-
-  displayEditDeleteButtons(): boolean {
-    return this.authService.getLoggedUserRole() === 'admin';
   }
 
   private getDefaultProduct(): Product {
