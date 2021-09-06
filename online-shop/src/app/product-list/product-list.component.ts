@@ -5,7 +5,7 @@ import { ProductFormComponent } from '../product-form/product-form.component';
 import { AuthService } from 'src/services/auth.service';
 import { AppState } from 'src/store/state/app.state';
 import { select, Store } from '@ngrx/store';
-import { selectProductList } from 'src/store/selectors/product.state';
+import { selectProductList } from 'src/store/selectors/product.selectors';
 import { GetProductList } from 'src/store/actions/product.actions';
 
 @Component({

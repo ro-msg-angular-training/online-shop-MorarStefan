@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
-import { ShoppingCartService } from '../../services/shopping-cart.service';
 import Product from '../../interfaces/Product';
 import ShoppingCartItem from '../../interfaces/ShoppingCartItem';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,8 +8,9 @@ import { ProductFormComponent } from '../product-form/product-form.component';
 import { AuthService } from 'src/services/auth.service';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/store/state/app.state';
-import { selectProduct } from 'src/store/selectors/product.state';
+import { selectProduct } from 'src/store/selectors/product.selectors';
 import { DeleteProduct, GetProduct } from 'src/store/actions/product.actions';
+import { AddItem } from 'src/store/actions/shopping-cart.actions';
 
 @Component({
   selector: 'app-product-details',
@@ -27,7 +27,6 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingCartService: ShoppingCartService,
     private authService: AuthService,
     private store: Store<AppState>,
     private dialog: MatDialog
@@ -55,7 +54,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addProductToShoppingCart(): void {
-    this.shoppingCartService.addItem(this.getShoppingCartItem());
+    this.store.dispatch(new AddItem(this.getShoppingCartItem()));
   }
 
   openProductForm(): void {

@@ -25,6 +25,7 @@ import { appReducers } from 'src/store/reducers/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from 'src/store/effects/login.effects';
 import { ProductEffects } from 'src/store/effects/product.effects';
+import { ShoppingCartEffects } from 'src/store/effects/shopping-cart.effects';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { ProductEffects } from 'src/store/effects/product.effects';
     MatSnackBarModule,
     ReactiveFormsModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([LoginEffects, ProductEffects]),
+    EffectsModule.forRoot([LoginEffects, ProductEffects, ShoppingCartEffects]),
   ],
   providers: [fakeBackendProvider],
   bootstrap: [AppComponent],
