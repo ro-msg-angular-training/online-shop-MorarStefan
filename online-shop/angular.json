@@ -16,6 +16,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ro": "src/locale/messages.ro.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -68,6 +74,11 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "ro": {
+              "localize": [
+                "ro"
+              ]
             }
           },
           "defaultConfiguration": ""
@@ -80,6 +91,9 @@
           "configurations": {
             "production": {
               "browserTarget": "online-shop:build:production"
+            },
+            "ro": {
+              "browserTarget": "online-shop:build:ro"
             }
           }
         },

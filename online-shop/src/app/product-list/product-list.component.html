@@ -1,21 +1,21 @@
 <mat-table [dataSource]="products" class="products-table">
     <ng-container matColumnDef="product">
-        <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@productListProductHeader"> Product </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="category">
-        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@productListCategoryHeader"> Category </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.category.name}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="price">
-        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@productListPriceHeader"> Price </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@productListActionHeader"> Action </mat-header-cell>
         <mat-cell *matCellDef="let element"> <a routerLink="/products/{{element._id}}">
                 <button mat-mini-fab color="primary">
                     <mat-icon>keyboard_arrow_right</mat-icon>
@@ -28,5 +28,5 @@
 </mat-table>
 
 <button *ngIf="displayAddButton" class="add-product-button" mat-raised-button color="primary"
-    (click)="openProductForm()">Add product
+    (click)="openProductForm()" i18n="@@productListAddProductButton">Add product
 </button>

@@ -1,27 +1,30 @@
-<h2>Product Details</h2>
+<h2 i18n="@@productDetailsHeader">Product Details</h2>
 
 <div class="productDetails">
     <div class="informationColumn">
-        <div class="name">Name: {{product.name}}</div>
-        <div class="category">Category: {{product.category.name}}</div>
-        <div class="category">Supplier: {{product.supplier.name}}</div>
-        <div class="price">Price: {{product.price}}</div>
-        <div class="price">Weight: {{product.weight}}</div>
-        <div class="description">Description: {{product.description}}</div>
-        <button class="button" mat-raised-button color="primary" (click)="addProductToShoppingCart()">Add to cart
+        <div class="name"><span i18n="@@productDetailsName">Name</span>: {{product.name}}</div>
+        <div class="category"><span i18n="@@productDetailsCategory">Category</span>: {{product.category.name}}</div>
+        <div class="category"><span i18n="@@productDetailsSupplier">Supplier</span>: {{product.supplier.name}}</div>
+        <div class="price"><span i18n="@@productDetailsPrice">Price</span>: {{product.price}}</div>
+        <div class="price"><span i18n="@@productDetailsWeight">Weight</span>: {{product.weight}}</div>
+        <div class="description"><span i18n="@@productDetailsDescription">Description</span>: {{product.description}}
+        </div>
+        <button class="button" mat-raised-button color="primary" (click)="addProductToShoppingCart()"
+            i18n="@@productDetailsAddToCartButton">Add to cart
         </button>
         <a routerLink="/shoppingCart">
-            <button class="button" mat-raised-button color="primary">See shopping cart</button>
+            <button class="button" mat-raised-button color="primary" i18n="@@productDetailsSeeCartButton">See shopping
+                cart</button>
         </a>
         <a routerLink="/products">
             <button *ngIf="displayEditDeleteButtons" class="button" mat-raised-button color="primary"
-                (click)="deleteProduct()">Delete product from
+                (click)="deleteProduct()" i18n="@@productDetailsDeleteButton">Delete product from
                 catalogue
             </button>
         </a>
 
         <button *ngIf="displayEditDeleteButtons" class="button" mat-raised-button color="primary"
-            (click)="openProductForm()">Edit product</button>
+            (click)="openProductForm()" i18n="@@productDetailsEditButton">Edit product</button>
     </div>
     <div class="imageColumn">
         <img class="image" src={{imageApi}} />

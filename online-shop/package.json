@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:ro": "ng serve --configuration=ro",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -34,6 +35,7 @@
     "@angular-devkit/build-angular": "~12.2.4",
     "@angular/cli": "~12.2.4",
     "@angular/compiler-cli": "~12.2.4",
+    "@angular/localize": "^12.2.4",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",

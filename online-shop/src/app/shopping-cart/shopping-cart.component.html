@@ -1,21 +1,21 @@
 <mat-table [dataSource]="shoppingCartItems" class="shopping-cart-table">
     <ng-container matColumnDef="product">
-        <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@shoppingCartProductHeader"> Product </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.productName}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="category">
-        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@shoppingCartCategoryHeader"> Category </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.categoryName}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="price">
-        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@shoppingCartPriceHeader"> Price </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="quantity">
-        <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef i18n="@@shoppingCartQuantityHeader"> Quantity </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
     </ng-container>
 
@@ -23,4 +23,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<button class="button" mat-raised-button color="primary" (click)="createOrder()">Checkout</button>
+<button class="button" mat-raised-button color="primary" (click)="createOrder()"
+    i18n="@@shoppingCartCheckoutButton">Checkout</button>
