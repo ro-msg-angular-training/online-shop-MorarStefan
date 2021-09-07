@@ -54,16 +54,24 @@ export const productReducers = (
         error: action.payload,
       };
     }
+    case EProductActions.GetProductList: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
     case EProductActions.GetProductListSuccess: {
       return {
         ...state,
         productList: action.payload,
+        loading: false,
       };
     }
     case EProductActions.GetProductListError: {
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     }
     default:

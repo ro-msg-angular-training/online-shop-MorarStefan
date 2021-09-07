@@ -19,6 +19,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { fakeBackendProvider } from './interceptors/fake-backend.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from 'src/store/reducers/app.reducers';
@@ -49,6 +50,7 @@ import { ShoppingCartEffects } from 'src/store/effects/shopping-cart.effects';
     MatTableModule,
     MatPaginatorModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([LoginEffects, ProductEffects, ShoppingCartEffects]),

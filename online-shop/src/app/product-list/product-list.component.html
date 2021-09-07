@@ -1,32 +1,41 @@
-<mat-table [dataSource]="products" class="products-table">
-    <ng-container matColumnDef="product">
-        <mat-header-cell *matHeaderCellDef i18n="@@productListProductHeader"> Product </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
+<div *ngIf="!displaySpinner; else spinner">
+    <div *ngIf="displayError; else table" i18n="@@productListError">Error loading data</div>
+</div>
+<ng-template #spinner>
+    <mat-spinner class="spinner"></mat-spinner>
+</ng-template>
 
-    <ng-container matColumnDef="category">
-        <mat-header-cell *matHeaderCellDef i18n="@@productListCategoryHeader"> Category </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.category.name}} </mat-cell>
-    </ng-container>
+<ng-template #table>
+    <mat-table [dataSource]="products" class="products-table">
+        <ng-container matColumnDef="product">
+            <mat-header-cell *matHeaderCellDef i18n="@@productListProductHeader"> Product </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="price">
-        <mat-header-cell *matHeaderCellDef i18n="@@productListPriceHeader"> Price </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="category">
+            <mat-header-cell *matHeaderCellDef i18n="@@productListCategoryHeader"> Category </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.category.name}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef i18n="@@productListActionHeader"> Action </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <a routerLink="/products/{{element._id}}">
-                <button mat-mini-fab color="primary">
-                    <mat-icon>keyboard_arrow_right</mat-icon>
-                </button>
-            </a> </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef i18n="@@productListPriceHeader"> Price </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+        </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef i18n="@@productListActionHeader"> Action </mat-header-cell>
+            <mat-cell *matCellDef="let element"> <a routerLink="/products/{{element._id}}">
+                    <button mat-mini-fab color="primary">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </a> </mat-cell>
+        </ng-container>
 
-<button *ngIf="displayAddButton" class="add-product-button" mat-raised-button color="primary"
-    (click)="openProductForm()" i18n="@@productListAddProductButton">Add product
-</button>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <button *ngIf="displayAddButton" class="add-product-button" mat-raised-button color="primary"
+        (click)="openProductForm()" i18n="@@productListAddProductButton">Add product
+    </button>
+</ng-template>

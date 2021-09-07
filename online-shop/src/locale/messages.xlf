@@ -163,39 +163,46 @@
           <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="productListError" datatype="html">
+        <source>Error loading data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="productListProductHeader" datatype="html">
         <source> Product </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListCategoryHeader" datatype="html">
         <source> Category </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListPriceHeader" datatype="html">
         <source> Price </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListActionHeader" datatype="html">
         <source> Action </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListAddProductButton" datatype="html">
-        <source>Add product</source>
+        <source>Add product </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shoppingCartProductHeader" datatype="html">

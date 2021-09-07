@@ -186,12 +186,20 @@
           <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="productListError" datatype="html">
+        <source>Error loading data</source>
+        <target>Eroare la încărcarea datelor</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="productListProductHeader" datatype="html">
         <source> Product </source>
         <target> Produs </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListCategoryHeader" datatype="html">
@@ -199,7 +207,7 @@
         <target> Categorie </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListPriceHeader" datatype="html">
@@ -207,7 +215,7 @@
         <target> Preț </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListActionHeader" datatype="html">
@@ -215,7 +223,7 @@
         <target> Acțiune </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="productListAddProductButton" datatype="html">
@@ -223,7 +231,7 @@
         <target>Adaugă produs</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/product-list/product-list.component.html</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shoppingCartProductHeader" datatype="html">
