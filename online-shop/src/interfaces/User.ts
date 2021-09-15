@@ -6,6 +6,6 @@ export interface User {
   role: string;
 }
 
-export type UserCredential = Omit<User, '_id|fullName|role'>;
+export type UserCredential = Omit<User, '_id' | 'fullName' | 'role'>;
 
 export type UserInformation = Omit<User, 'password'>;
