@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "5fabcf6c01bf861c90b50fef",
+        "name": "Samsung A10",
+        "description": "Samsung",
+        "price": 499,
+        "weight": 0.2,
+        "category": {
+            "name": "Phones",
+            "description": "Special offer"
+        },
+        "supplier": {
+            "name": "Emag"
+        },
+        "imageUrl": "tmp\\samsung_a20.jpg"
+    },
+    {
+        "_id": "5fb6315b9be62542507f5e84",
+        "name": "Samsung J7",
+        "description": "Samsung",
+        "price": 350,
+        "weight": 0.2,
+        "category": {
+            "name": "Phones",
+            "description": "Special offer"
+        },
+        "supplier": {
+            "name": "Altex"
+        },
+        "imageUrl": "tmp\\samsung_j6.jpg"
+    }
+]
