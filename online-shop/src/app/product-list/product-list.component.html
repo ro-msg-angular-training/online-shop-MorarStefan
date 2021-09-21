@@ -35,7 +35,6 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
 
-    <button *ngIf="displayAddButton" class="add-product-button" mat-raised-button color="primary"
-        (click)="openProductForm()" i18n="@@productListAddProductButton">Add product
-    </button>
+    <ui-button *ngIf="displayAddButton" class="add-product-button" text='Add product' [primary]="true"
+        (click)="openProductForm()"></ui-button>
 </ng-template>

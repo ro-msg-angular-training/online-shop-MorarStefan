@@ -27,6 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from 'src/store/effects/login.effects';
 import { ProductEffects } from 'src/store/effects/product.effects';
 import { ShoppingCartEffects } from 'src/store/effects/shopping-cart.effects';
+import { ButtonModule } from 'button-morars';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ShoppingCartEffects } from 'src/store/effects/shopping-cart.effects';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    ButtonModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([LoginEffects, ProductEffects, ShoppingCartEffects]),
   ],
